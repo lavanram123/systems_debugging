@@ -25,7 +25,7 @@ wait $pid
 # Process the trace file
 SCRIPT='
 BEGIN {
-    printf "    syscall    calls    mean   total\n"
+    printf "Summarizing the system calls\n"
 }
 /%$/ {if (NF == 7) {                       # Catches only the summary lines, ending with % 
                  calls[$1] += $2             
