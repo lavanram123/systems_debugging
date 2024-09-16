@@ -1,4 +1,6 @@
 #! /bin/bash
+# This script is used to trace the system calls of a process
+
 if [ -z "$1" ]; then
     echo "Usage: $0 <pid>"
     exit 1
@@ -7,23 +9,26 @@ fi
 PID=$1
 OUT=trace_${PID}.txt
 
+# Check if the process is running
 if ! ps -p $PID > /dev/null; then
     echo "Process with PID $PID not found"
     exit 1
 fi
 
+# Start tracing the process
 echo "Tracing process $PID to $OUT"
 (perf trace -s -p $PID -o $OUT) 2>&1 & pid=$!
 (sleep 10 && kill $pid) 
 echo waiting for trace to finish
 wait $pid
 
+# Process the trace file
 SCRIPT='
 BEGIN {
     printf "    syscall    calls    mean   total\n"
 }
-/\%$/ {if (NF == 7) {
-                 calls[$1] += $2
+/%$/ {if (NF == 7) {                       # Catches only the summary lines, ending with % 
+                 calls[$1] += $2             
                  total[$1] += $3
 }}
 
@@ -36,6 +41,7 @@ END {
 
 '
 
+# Process the trace file
 awk "$SCRIPT" $OUT
 rm $OUT
 
