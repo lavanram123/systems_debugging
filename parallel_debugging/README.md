@@ -1,6 +1,6 @@
 # Plexec
 
-Plexec is a Python module to execute commands on multiple hosts. It supports running commands directly on the hosts or inside Docker containers on those hosts.
+Plexec is a Python module to execute commands on multiple hosts. It supports running commands directly on the hosts or inside container on those hosts.
 
 ## Features
 
@@ -30,11 +30,11 @@ To execute a command on multiple hosts, you can use the `plexec` command-line to
 
 #### Basic Usage
 
-```sh
-plexec -f hosts.txt -u your_username -p your_password "echo 'Hello World'"
+```
+plexec.py -f hosts.txt -u your_username -p your_password "echo 'Hello World'"
 ```
 ```
-plexec <cmd> -f <hosts_file> [-u <user>] [-p <password>] [-c] [--dock <container_name>] [--key <private_key_path>]
+plexec.py <cmd> -f <hosts_file> [-u <user>] [-p <password>] [-c] [--dock <container_name>] [--key <private_key_path>]
 ```
 
 ### Arguments
@@ -50,13 +50,13 @@ plexec <cmd> -f <hosts_file> [-u <user>] [-p <password>] [-c] [--dock <container
 ### Example
 
 1. Execute a command on multiple hosts:
-    ```sh
-    plexec "echo 'Hello World'" -f hosts.txt --key ~/.ssh/id_rsa
+    ```
+    plexec.py "echo 'Hello World'" -f hosts.txt --key ~/.ssh/id_rsa
     ```
 
 2. Execute a command inside a Docker container on multiple hosts:
     ```sh
-    plexec "echo 'Hello from container'" -f hosts.txt --dock my_container --key ~/.ssh/id_rsa
+    plexec.py "echo 'Hello from container'" -f hosts.txt --dock my_container --key ~/.ssh/id_rsa
     ```
 
 ## Hosts File
