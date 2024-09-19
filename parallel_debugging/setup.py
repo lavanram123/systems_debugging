@@ -4,9 +4,9 @@ setup(
     name='plexec',
     version='1.0.0',
     description='Module to execute commands on multiple hosts',
-    author='Your Name',
-    author_email='your.email@example.com',
-    url='https://github.com/yourusername/plexec',  # Replace with your actual URL
+    author='lavan',
+    author_email='lavanram@gmail.com',
+    url='https://github.com/lavanram123/systems_debugging/paralle_debugging/plexec.py',  # Replace with your actual URL
     packages=find_packages(),
     install_requires=[
         'parallel-ssh',
