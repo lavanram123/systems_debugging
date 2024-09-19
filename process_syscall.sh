@@ -22,7 +22,7 @@ echo "Tracing process $PID to $OUT"
 echo waiting for trace to finish
 wait $pid
 
-# Process the trace file
+# Create options for awk .
 SCRIPT='
 BEGIN {
     printf "Summarizing the system calls\n"
