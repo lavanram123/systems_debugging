@@ -8,6 +8,10 @@ Plexec is a Python module to execute commands on multiple hosts. It supports run
 - Support for running commands inside Docker containers.
 - SSH key-based authentication.
 - Customizable SSH options.
+## Todo
+- Provide option to execute serially
+- Command line option to provide specific hosts
+- A generic function to retrieve hosts dynamically, either through system command or api call . 
 
 ## Installation
 
