@@ -10,7 +10,7 @@ PID=$1
 OUT=trace_${PID}.txt
 
 # Check if the process is running
-if ! ps -p $PID > /dev/null; then
+if [! ps -p $PID > /dev/null]; then
     echo "Process with PID $PID not found"
     exit 1
 fi
